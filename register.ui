@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Register</class>
+ <widget class="QDialog" name="Register">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLabel" name="RegisterLabel">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>40</y>
+     <width>81</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>     Login Page</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="gridLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>90</y>
+     <width>261</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0" colspan="2">
+     <widget class="QLabel" name="PleaseEnterLabel">
+      <property name="text">
+       <string>Please enter your username and password:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="UserLabel">
+      <property name="text">
+       <string>Username</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="passwordLabel">
+      <property name="text">
+       <string>Password</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="UsernameLE"/>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="PasswordLE"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="confirmlabel">
+      <property name="text">
+       <string>Confirm Password</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="confirmLE"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="LoginPB">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>230</y>
+     <width>80</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Register</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
