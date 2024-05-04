@@ -1,55 +1,65 @@
 #include "login.h"
 #include "ui_login.h"
-#include"register.h"
+#include "register.h"
 #include "patient.h"
-#include<QFile>
-#include<QTextStream>
-#include<QtDebug>
+#include <QFile>
+#include <QTextStream>
 #include <QDebug>
+#include <QMessageBox>
 
 Login::Login(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Login)
 {
     ui->setupUi(this);
-    mainwindow=new MainWindow;
+    role = new MainWindow;
 }
-
 
 Login::~Login()
 {
-
-
     delete ui;
 }
 
-
-
-
 void Login::on_LoginPB_clicked()
 {
+    QString name = ui->UsernameLE->text();
+    QString pass = ui->PasswordLE->text();
+    QString selectedRole = role->sendSelectedRole();
+    QString filename;
 
-    QString name=ui->UsernameLE->text();
-    QString pass=ui->PasswordLE->text();
-    QString x=mainwindow->sendSelectedRole();
-    qDebug()<< mainwindow->sendSelectedRole();
-    // if(x=="Pateint") {
-
-        Patient* patient= new Patient;
-        patient->show();
+    // if (selectedRole == "Patient")
+    // {
+        filename = "C:/Users/HP/Desktop/CS2 Lab Project/Patient.txt";
     // }
-    QFile file(":/../../../Desktop/Hospital/data.txt");
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qDebug() << "Failed to open file";
+  if (selectedRole == "Doctor")
+    {
+        filename = "C:/Users/HP/Desktop/CS2 Lab Project/Doctor.txt";
+    }
+    else if (selectedRole == "Nurse")
+    {
+        filename = "C:/Users/HP/Desktop/CS2 Lab Project/Nurse.txt";
+    }
+    else if (selectedRole == "Admin")
+    {
+        qDebug() << "Admin role selected";
         return;
     }
 
-    QTextStream in(&file);
+    QFile file(filename);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        qDebug() << "Could not open file for reading:" << filename;
+        return;
+    }
+
     bool found = false;
-    while (!in.atEnd()) {
+    QTextStream in(&file);
+    while (!in.atEnd())
+    {
         QString line = in.readLine();
-        QStringList parts = line.split(" "); // Assuming username and password are separated by a space
-        if (parts.size() == 2 && parts[0] == name && parts[1] == pass) {
+        QStringList data = line.split(" ");
+        if (data.size() >= 2 && data[0] == name && data[1] == pass)
+        {
             found = true;
             break;
         }
@@ -57,22 +67,33 @@ void Login::on_LoginPB_clicked()
 
     file.close();
 
-    if (found) {
-        qDebug() << "Login successful";
-        // Proceed with login logic
-    } else {
-        qDebug() << "Login failed";
-        // Display error message
+    if (found)
+    {
+        if (selectedRole == "Patient")
+        {
+            Patient *patient = new Patient;
+            patient->setUsername(name);
+            this->hide();
+            patient->show();
+        }
+        else if (selectedRole == "Doctor")
+        {
+
+        }
+        else if (selectedRole == "Nurse")
+        {
+
+        }
     }
-
-
+    else
+    {
+        QMessageBox::warning(this, "Login Failed", "Username or password is not correct. Please try again or register a new account.");
+    }
 }
-
 
 void Login::on_RegisterPB_clicked()
 {
     this->hide();
-    Register* rr = new Register;
+    Register *rr = new Register;
     rr->show();
 }
-

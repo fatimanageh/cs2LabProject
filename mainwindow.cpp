@@ -1,13 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include"login.h"
+#include "login.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-       selectedRole="Patient";
+    selectedRole = Patient;
 }
 
 MainWindow::~MainWindow()
@@ -17,44 +17,43 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_PatientPB_clicked()
 {
-    selectedRole="Patient";
+    selectedRole = Patient;
     this->hide();
-    Login* login=new Login;
+    Login *login = new Login;
     login->show();
 }
-
 
 void MainWindow::on_DoctorPB_clicked()
 {
-    selectedRole="Doctor";
+    selectedRole = Doctor;
     this->hide();
-    Login* login=new Login;
+    Login *login = new Login;
     login->show();
 }
-
 
 void MainWindow::on_NursePB_clicked()
 {
-
-    selectedRole="Nurse";
+    selectedRole = Nurse;
     this->hide();
-    Login* login=new Login;
+    Login *login = new Login;
     login->show();
 }
 
-
 void MainWindow::on_pushButton_clicked()
 {
-    selectedRole="Admin";
-
+    selectedRole = Admin;
     this->hide();
-    Login* login=new Login;
+    Login *login = new Login;
     login->show();
 }
 
 QString MainWindow::sendSelectedRole()
 {
-    return selectedRole;
+    switch (selectedRole) {
+    case Patient: return "Patient";
+    case Nurse: return "Nurse";
+    case Doctor: return "Doctor";
+    case Admin: return "Admin";
+    }
+    return "";
 }
-
-

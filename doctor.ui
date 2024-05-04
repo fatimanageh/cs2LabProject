@@ -13,6 +13,32 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <widget class="QPushButton" name="patientrecord">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>40</y>
+     <width>141</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Patient Record</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="setslots">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>40</y>
+     <width>121</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Set Slots</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

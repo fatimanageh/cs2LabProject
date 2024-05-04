@@ -14,6 +14,7 @@ SOURCES += \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
+    nurse.cpp \
     patient.cpp \
     register.cpp \
     requestappoint.cpp
@@ -23,6 +24,7 @@ HEADERS += \
     doctor.h \
     login.h \
     mainwindow.h \
+    nurse.h \
     patient.h \
     register.h \
     requestappoint.h
@@ -32,6 +34,7 @@ FORMS += \
     doctor.ui \
     login.ui \
     mainwindow.ui \
+    nurse.ui \
     patient.ui \
     register.ui \
     requestappoint.ui

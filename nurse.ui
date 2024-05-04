@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>RequestAppoint</class>
- <widget class="QDialog" name="RequestAppoint">
+ <class>Nurse</class>
+ <widget class="QDialog" name="Nurse">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,27 +13,30 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>30</y>
-     <width>191</width>
-     <height>16</height>
+     <x>40</x>
+     <y>50</y>
+     <width>111</width>
+     <height>24</height>
     </rect>
    </property>
    <property name="text">
-    <string>Doctors and if the available time</string>
+    <string>Patient Record</string>
    </property>
   </widget>
-  <widget class="QListWidget" name="listWidget">
+  <widget class="QPushButton" name="assignedPatient">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>90</y>
-     <width>256</width>
-     <height>192</height>
+     <x>230</x>
+     <y>50</y>
+     <width>111</width>
+     <height>24</height>
     </rect>
+   </property>
+   <property name="text">
+    <string>Assigned Patient</string>
    </property>
   </widget>
  </widget>

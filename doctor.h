@@ -1,22 +1,27 @@
 #ifndef DOCTOR_H
 #define DOCTOR_H
 
-#include <QDialog>
+#include <QString>
+#include <QList>
 
-namespace Ui {
-class Doctor;
-}
-
-class Doctor : public QDialog
+class Doctor
 {
-    Q_OBJECT
-
 public:
-    explicit Doctor(QWidget *parent = nullptr);
-    ~Doctor();
+    Doctor(const QString& name, const QString& specialization);
+
+    QString getName() const;
+    QString getSpecialization() const;
+
+    void loadAppointmentsFromFile(const QString& fileName);
+    void viewAppointments() const;
+    void editAppointment(int index, const QString& updatedDetails);
+    void acceptAppointment(int index);
+    void declineAppointment(int index);
 
 private:
-    Ui::Doctor *ui;
+    QString name;
+    QString specialization;
+    QList<QString> appointments;
 };
 
 #endif // DOCTOR_H

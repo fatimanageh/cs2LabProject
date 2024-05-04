@@ -15,7 +15,7 @@ public:
     explicit Login(QWidget *parent = nullptr);
     ~Login();
 
-    MainWindow* mainwindow;
+    MainWindow* role;
 private slots:
     void on_LoginPB_clicked();
 
