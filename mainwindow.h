@@ -16,6 +16,8 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    QString selectedRole;
+     QString sendSelectedRole();
 
 private slots:
     void on_PatientPB_clicked();
@@ -25,6 +27,7 @@ private slots:
     void on_NursePB_clicked();
 
     void on_pushButton_clicked();
+
 
 private:
     Ui::MainWindow *ui;

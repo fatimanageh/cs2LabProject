@@ -1,6 +1,7 @@
 #include "register.h"
 #include"login.h"
 #include "ui_register.h"
+#include "patient.h"
 #include<QFile>
 #include<QTextStream>
 #include <QDebug>
@@ -15,7 +16,7 @@ Register::Register(QWidget *parent)
 
 void Register::saveVariables(const QString &filename, const QString &variable1, const QString &variable2)
 {
-    QFile file("C:/Users/fatim/OneDrive/Documents/CS2lab_Project/data.txt");
+    QFile file("C:/Users/HP/Desktop/Hospital/data.txt");
     if(!file.open(QIODevice::Append | QIODevice::Text)){
 
         qDebug() << "Could not open file for reading";
@@ -47,7 +48,9 @@ void Register::on_LoginPB_clicked()
 
     saveVariables("data",name,pass);
 
+    Patient* patient;
 
+    patient->setUsername(name);
 
     this->hide();
     Login* ll=new Login;

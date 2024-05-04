@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../../../Desktop/Hospital/data.txt</file>
+        <file>../../../Desktop/Hospital/Medical Record.txt</file>
+    </qresource>
+</RCC>

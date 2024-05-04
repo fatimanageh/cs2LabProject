@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+       selectedRole="Patient";
 }
 
 MainWindow::~MainWindow()
@@ -16,6 +17,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_PatientPB_clicked()
 {
+    selectedRole="Patient";
     this->hide();
     Login* login=new Login;
     login->show();
@@ -24,6 +26,7 @@ void MainWindow::on_PatientPB_clicked()
 
 void MainWindow::on_DoctorPB_clicked()
 {
+    selectedRole="Doctor";
     this->hide();
     Login* login=new Login;
     login->show();
@@ -32,6 +35,8 @@ void MainWindow::on_DoctorPB_clicked()
 
 void MainWindow::on_NursePB_clicked()
 {
+
+    selectedRole="Nurse";
     this->hide();
     Login* login=new Login;
     login->show();
@@ -40,8 +45,16 @@ void MainWindow::on_NursePB_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
+    selectedRole="Admin";
+
     this->hide();
     Login* login=new Login;
     login->show();
 }
+
+QString MainWindow::sendSelectedRole()
+{
+    return selectedRole;
+}
+
 

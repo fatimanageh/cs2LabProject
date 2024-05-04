@@ -1,15 +1,18 @@
 #include "login.h"
 #include "ui_login.h"
 #include"register.h"
+#include "patient.h"
 #include<QFile>
 #include<QTextStream>
 #include<QtDebug>
+#include <QDebug>
 
 Login::Login(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Login)
 {
     ui->setupUi(this);
+    mainwindow=new MainWindow;
 }
 
 
@@ -28,8 +31,14 @@ void Login::on_LoginPB_clicked()
 
     QString name=ui->UsernameLE->text();
     QString pass=ui->PasswordLE->text();
+    QString x=mainwindow->sendSelectedRole();
+    qDebug()<< mainwindow->sendSelectedRole();
+    // if(x=="Pateint") {
 
-    QFile file("C:/Users/fatim/OneDrive/Documents/CS2lab_Project/data.txt");
+        Patient* patient= new Patient;
+        patient->show();
+    // }
+    QFile file(":/../../../Desktop/Hospital/data.txt");
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "Failed to open file";
         return;
