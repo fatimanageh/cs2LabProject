@@ -27,10 +27,10 @@ void Login::on_LoginPB_clicked()
     QString selectedRole = role->sendSelectedRole();
     QString filename;
 
-    // if (selectedRole == "Patient")
-    // {
+    if (selectedRole == "Patient")
+    {
         filename = "C:/Users/HP/Desktop/CS2 Lab Project/Patient.txt";
-    // }
+    }
   if (selectedRole == "Doctor")
     {
         filename = "C:/Users/HP/Desktop/CS2 Lab Project/Doctor.txt";

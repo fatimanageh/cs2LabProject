@@ -19,7 +19,7 @@ public:
         Doctor
     };
 
-    Chat(/*UserType userType,*/ QWidget *parent = nullptr);
+    Chat( QWidget *parent = nullptr);
     ~Chat();
 
 private slots:

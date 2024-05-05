@@ -76,7 +76,7 @@ void Register::on_LoginPB_clicked()
     QString retype = ui->confirmLE->text();
 
     if (pass != retype) {
-        QMessageBox::critical(this, tr(""), tr("Password not be equal"));
+        QMessageBox::critical(this, tr(""), tr("Password is not be equal"));
     } else if (pass==retype) {
     if (selectedRole == "Patient")
     {
@@ -117,11 +117,6 @@ void Register::on_LoginPB_clicked()
 void Register::on_Register_accepted()
 {
 
-    // QString pass = ui->PasswordLE->text();
-    // QString retype = ui->confirmLE->text();
 
-    // if (pass != retype) {
-    //     QMessageBox::critical(this, tr(""), tr("Password not be equal"));
-    // }
 }
 

@@ -34,7 +34,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    SelectedRole selectedRole; // Declare the selectedRole instance variable
+    SelectedRole selectedRole;
 };
 
 #endif // MAINWINDOW_H
