@@ -71,7 +71,7 @@ void Register::on_LoginPB_clicked()
 
     QString selectedRole = role->sendSelectedRole();
     QString filename;
-
+    qDebug()<<selectedRole;
     QString pass = ui->PasswordLE->text();
     QString retype = ui->confirmLE->text();
 

@@ -2,9 +2,9 @@
 #define REQUESTAPPOINT_H
 
 #include <QDialog>
-#include <QVector>
+#include <QVBoxLayout>
 #include <QPushButton>
-#include "doctor.h"
+#include <QLabel>
 
 namespace Ui {
 class RequestAppoint;
@@ -19,11 +19,12 @@ public:
     ~RequestAppoint();
 
 private slots:
-    void handleAppointmentRequest();
+    void handleSlotButtonClicked();
+    void handleCancelButtonClicked();
 
 private:
     Ui::RequestAppoint *ui;
-    QVector<Doctor> doctors;
+    QVBoxLayout *layout;
 
     void loadDoctorData();
 };

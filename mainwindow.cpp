@@ -55,5 +55,6 @@ QString MainWindow::sendSelectedRole()
     case Doctor: return "Doctor";
     case Admin: return "Admin";
     }
-    return "";
+// default:
+//     return "";
 }

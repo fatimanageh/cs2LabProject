@@ -1,4 +1,4 @@
-// chatwindow.cpp
+
 #include "chat.h"
 #include "ui_chat.h"
 #include <QMessageBox>

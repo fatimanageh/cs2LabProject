@@ -2,6 +2,7 @@
 #include "ui_login.h"
 #include "register.h"
 #include "patient.h"
+#include "doctor.h"
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
@@ -33,7 +34,7 @@ void Login::on_LoginPB_clicked()
     }
   if (selectedRole == "Doctor")
     {
-        filename = "C:/Users/HP/Desktop/CS2 Lab Project/Doctor.txt";
+        filename ="C:/Users/HP/Desktop/CS2 Lab Project/Doctor.txt";
     }
     else if (selectedRole == "Nurse")
     {
@@ -78,7 +79,9 @@ void Login::on_LoginPB_clicked()
         }
         else if (selectedRole == "Doctor")
         {
-
+            Doctor* doctor=new Doctor;
+            this->hide();
+            doctor->show();
         }
         else if (selectedRole == "Nurse")
         {

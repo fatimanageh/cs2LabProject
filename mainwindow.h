@@ -21,7 +21,8 @@ public:
         Patient,
         Nurse,
         Doctor,
-        Admin
+        Admin,
+        None,
     };
 
     QString sendSelectedRole();

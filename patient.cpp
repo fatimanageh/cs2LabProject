@@ -42,20 +42,17 @@ void Patient::on_medicalRecord_clicked()
             file.close();
             if (found) {
 
-                QMessageBox::information(this, tr("Medical Record"), line);
+                QMessageBox::information(this, "Medical Record", line);
             } else {
 
-                QMessageBox::information(this, tr("Error"), tr("Username not found in the file."));
+                QMessageBox::information(this, "Error", "Username not found in the file.");
             }
         } else {
 
-            QMessageBox::critical(this, tr("Error"), tr("Failed to open the file."));
+            QMessageBox::critical(this, "Error", "Failed to open the file.");
         }
     }
 }
-
-
-
 void Patient::on_Appointment_clicked()
 {
     RequestAppoint* request=new RequestAppoint;
