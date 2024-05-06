@@ -10,6 +10,12 @@ Patient::Patient(QWidget *parent)
     , ui(new Ui::Patient)
 {
     ui->setupUi(this);
+    QPixmap pix("C:/Users/HP/Downloads/abstract-blur-hospital-clinic-interior.jpg");
+    backgroundLabel = new QLabel(this);
+    backgroundLabel->setPixmap(pix);
+    backgroundLabel->setScaledContents(true);
+    backgroundLabel->setGeometry(0, 0, geometry().width(), geometry().height());
+    backgroundLabel->lower();
 }
 
 Patient::~Patient()

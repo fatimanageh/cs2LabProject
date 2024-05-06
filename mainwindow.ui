@@ -17,17 +17,17 @@
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>79</x>
-      <y>50</y>
-      <width>334</width>
+      <x>150</x>
+      <y>230</y>
+      <width>473</width>
       <height>131</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="2">
-      <widget class="QPushButton" name="NursePB">
+     <item row="1" column="1">
+      <widget class="QPushButton" name="DoctorPB">
        <property name="text">
-        <string>Nurse</string>
+        <string>Doctor</string>
        </property>
       </widget>
      </item>
@@ -38,10 +38,10 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QPushButton" name="DoctorPB">
+     <item row="1" column="2">
+      <widget class="QPushButton" name="NursePB">
        <property name="text">
-        <string>Doctor</string>
+        <string>Nurse</string>
        </property>
       </widget>
      </item>
@@ -55,7 +55,7 @@
      <item row="0" column="0" colspan="4">
       <widget class="QLabel" name="PickLabel">
        <property name="text">
-        <string>                                                    Pick your role</string>
+        <string>                                                               Pick your role</string>
        </property>
       </widget>
      </item>
@@ -68,7 +68,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>17</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

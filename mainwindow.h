@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include <QLabel>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -16,16 +16,19 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    QLabel* backgroundLabel;
+signals:
+    void roleSelected(const QString &role);
 
-    enum SelectedRole {
-        Patient,
-        Nurse,
-        Doctor,
-        Admin,
-        None,
-    };
+    // enum SelectedRole {
+    //     Patient,
+    //     Nurse,
+    //     Doctor,
+    //     Admin,
+    //     None,
+    // };
 
-    QString sendSelectedRole();
+    // QString sendSelectedRole();
 
 private slots:
     void on_PatientPB_clicked();
@@ -35,7 +38,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    SelectedRole selectedRole;
+    QString selectedRole;
+
 };
 
 #endif // MAINWINDOW_H

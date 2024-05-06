@@ -2,7 +2,7 @@
 #define PATIENT_H
 
 #include <QDialog>
-
+#include <QLabel>
 namespace Ui {
 class Patient;
 }
@@ -15,6 +15,7 @@ public:
     explicit Patient(QWidget *parent = nullptr);
     ~Patient();
   void setUsername(const QString &username);
+    QLabel* backgroundLabel;
 private slots:
     void on_medicalRecord_clicked();
 

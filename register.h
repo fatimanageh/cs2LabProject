@@ -4,7 +4,7 @@
 #include <QDialog>
 #include <QString>
 #include "mainwindow.h"
-
+#include <QLabel>
 namespace Ui {
 class Register;
 }
@@ -14,8 +14,9 @@ class Register : public QDialog
     Q_OBJECT
 
 public:
-    explicit Register(QWidget *parent = nullptr);
+    explicit Register(  QString selectedRole, QWidget *parent = nullptr);
     ~Register();
+    QLabel* backgroundLabel;
 
 private slots:
     void on_LoginPB_clicked();
@@ -26,6 +27,7 @@ private slots:
 private:
     Ui::Register *ui;
     MainWindow *role;
+    QString selectedRole;
 };
 
 #endif // REGISTER_H

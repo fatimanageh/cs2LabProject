@@ -6,7 +6,8 @@
 
 RequestAppoint::RequestAppoint(QWidget *parent)
     : QDialog(parent),
-    ui(new Ui::RequestAppoint)
+    ui(new Ui::RequestAppoint),
+    file("C:/Users/HP/Desktop/CS2 Lab Project/Doctor slots.txt")
 {
     ui->setupUi(this);
     QVBoxLayout *scrollLayout = new QVBoxLayout(ui->scrollArea);
@@ -20,11 +21,12 @@ RequestAppoint::RequestAppoint(QWidget *parent)
 RequestAppoint::~RequestAppoint()
 {
     delete ui;
+    delete layout;
 }
 
 void RequestAppoint::loadDoctorData()
 {
-    QFile file("C:/Users/HP/Desktop/CS2 Lab Project/Doctor slots.txt");
+    // QFile file("C:/Users/HP/Desktop/CS2 Lab Project/Doctor slots.txt");
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "Could not open the file in the request appoint";
         return;
@@ -75,7 +77,7 @@ void RequestAppoint::handleSlotButtonClicked()
     QString labelText = label->text();
     QString doctorName = labelText.left(labelText.indexOf(':')).trimmed();
 
-    QFile file("C:/Users/HP/Desktop/CS2 Lab Project/Doctor slots.txt");
+    // QFile file("C:/Users/HP/Desktop/CS2 Lab Project/Doctor slots.txt");
     if (!file.open(QIODevice::ReadWrite | QIODevice::Text)) {
         qDebug() << "Could not open the file in the request appoint to request an appointment";
         return;
@@ -126,7 +128,7 @@ void RequestAppoint::handleCancelButtonClicked()
     QString labelText = label->text();
     QString doctorName = labelText.left(labelText.indexOf(':')).trimmed();
 
-    QFile file("C:/Users/HP/Desktop/CS2 Lab Project/Doctor slots.txt");
+    // QFile file("C:/Users/HP/Desktop/CS2 Lab Project/Doctor slots.txt");
     if (!file.open(QIODevice::ReadWrite | QIODevice::Text)) {
         qDebug() << "Could not open the file in the request appoint to cancelan appointment";
         return;

@@ -16,9 +16,9 @@
   <widget class="QPushButton" name="medicalRecord">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>180</y>
-     <width>111</width>
+     <x>200</x>
+     <y>90</y>
+     <width>141</width>
      <height>51</height>
     </rect>
    </property>
@@ -29,9 +29,9 @@
   <widget class="QPushButton" name="chat">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>90</y>
-     <width>111</width>
+     <x>140</x>
+     <y>160</y>
+     <width>81</width>
      <height>51</height>
     </rect>
    </property>
@@ -42,9 +42,9 @@
   <widget class="QPushButton" name="Appointment">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>30</x>
      <y>90</y>
-     <width>141</width>
+     <width>131</width>
      <height>51</height>
     </rect>
    </property>

@@ -13,30 +13,17 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="patientRecord">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>50</y>
-     <width>111</width>
-     <height>24</height>
+     <x>100</x>
+     <y>90</y>
+     <width>171</width>
+     <height>81</height>
     </rect>
    </property>
    <property name="text">
-    <string>Patient Record</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="assignedPatient">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>50</y>
-     <width>111</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Assigned Patient</string>
+    <string>View patient record</string>
    </property>
   </widget>
  </widget>

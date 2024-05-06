@@ -9,8 +9,11 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    admin.cpp \
+    admindata.cpp \
     chat.cpp \
     doctor.cpp \
+    doctorslots.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -20,8 +23,11 @@ SOURCES += \
     requestappoint.cpp
 
 HEADERS += \
+    admin.h \
+    admindata.h \
     chat.h \
     doctor.h \
+    doctorslots.h \
     login.h \
     mainwindow.h \
     nurse.h \
@@ -30,8 +36,11 @@ HEADERS += \
     requestappoint.h
 
 FORMS += \
+    admin.ui \
+    admindata.ui \
     chat.ui \
     doctor.ui \
+    doctorslots.ui \
     login.ui \
     mainwindow.ui \
     nurse.ui \

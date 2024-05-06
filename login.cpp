@@ -3,17 +3,26 @@
 #include "register.h"
 #include "patient.h"
 #include "doctor.h"
+#include "nurse.h"
+#include "admin.h"
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
 #include <QMessageBox>
-
-Login::Login(QWidget *parent)
+#include <QPixmap>
+Login::Login(QString selectedRole, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Login)
 {
     ui->setupUi(this);
     role = new MainWindow;
+    this->selectedRole=selectedRole;
+    QPixmap pix("C:/Users/HP/Downloads/3632097.jpg");
+    backgroundLabel = new QLabel(this);
+    backgroundLabel->setPixmap(pix);
+    backgroundLabel->setScaledContents(true);
+    backgroundLabel->setGeometry(0, 0, geometry().width(), geometry().height());
+    backgroundLabel->lower();
 }
 
 Login::~Login()
@@ -24,8 +33,11 @@ Login::~Login()
 void Login::on_LoginPB_clicked()
 {
     QString name = ui->UsernameLE->text();
+    // Doctor* doctor=new Doctor(name);
     QString pass = ui->PasswordLE->text();
-    QString selectedRole = role->sendSelectedRole();
+    // QString selectedRole = role->sendSelectedRole();
+       qDebug()<<selectedRole;
+
     QString filename;
 
     if (selectedRole == "Patient")
@@ -40,11 +52,12 @@ void Login::on_LoginPB_clicked()
     {
         filename = "C:/Users/HP/Desktop/CS2 Lab Project/Nurse.txt";
     }
-    else if (selectedRole == "Admin")
+    else if (selectedRole == "aa")
     {
-        qDebug() << "Admin role selected";
-        return;
+        filename = "C:/Users/HP/Desktop/CS2 Lab Project/Admin.txt";
     }
+
+    qDebug()<<filename;
 
     QFile file(filename);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -79,14 +92,24 @@ void Login::on_LoginPB_clicked()
         }
         else if (selectedRole == "Doctor")
         {
-            Doctor* doctor=new Doctor;
+            Doctor* doctor=new Doctor(name);
             this->hide();
             doctor->show();
         }
+
+        else if( selectedRole== "aa"){
+            Admin* admin= new Admin;
+            this->hide();
+            admin->show();
+        }
         else if (selectedRole == "Nurse")
         {
+            Nurse* nurse= new Nurse;
+            this->hide();
+            nurse->show();
 
         }
+
     }
     else
     {
@@ -97,6 +120,6 @@ void Login::on_LoginPB_clicked()
 void Login::on_RegisterPB_clicked()
 {
     this->hide();
-    Register *rr = new Register;
+    Register *rr = new Register(selectedRole);
     rr->show();
 }

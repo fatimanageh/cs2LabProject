@@ -7,14 +7,22 @@
 #include <QTextStream>
 #include <QDebug>
 #include <QMessageBox>
-
-Register::Register(QWidget *parent)
+#include <QPixmap>
+Register::Register(QString selectedRole, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Register)
 {
     ui->setupUi(this);
+
+    QPixmap pix("C:/Users/HP/Downloads/vintage-grunge-blue-concrete-texture-studio-wall-background-with-vignette.jpg");
+    backgroundLabel = new QLabel(this);
+    backgroundLabel->setPixmap(pix);
+    backgroundLabel->setScaledContents(true);
+    backgroundLabel->setGeometry(0, 0, geometry().width(), geometry().height());
+    backgroundLabel->lower();
     role = new MainWindow;
 
+    this->selectedRole=selectedRole;
     QFile patientData("C:/Users/HP/Desktop/CS2 Lab Project/Patient.txt");
     if (!patientData.open(QIODevice::Append | QIODevice::Text))
     {
@@ -69,9 +77,9 @@ void Register::on_LoginPB_clicked()
 
     role = new MainWindow;
 
-    QString selectedRole = role->sendSelectedRole();
+    // QString selectedRole = "None";
     QString filename;
-    qDebug()<<selectedRole;
+
     QString pass = ui->PasswordLE->text();
     QString retype = ui->confirmLE->text();
 
@@ -84,7 +92,7 @@ void Register::on_LoginPB_clicked()
 
         saveVariables(filename, name, pass);
         this->hide();
-        Login *ll = new Login;
+        Login *ll = new Login(selectedRole);
         ll->show();
     }
     else if (selectedRole == "Doctor")
@@ -93,7 +101,7 @@ void Register::on_LoginPB_clicked()
 
         saveVariables(filename, name, pass);
         this->hide();
-        Login *ll = new Login;
+        Login *ll = new Login(selectedRole);
         ll->show();
     }
     else if (selectedRole == "Nurse")
@@ -102,13 +110,17 @@ void Register::on_LoginPB_clicked()
 
         saveVariables(filename, name, pass);
         this->hide();
-        Login *ll = new Login;
+        Login *ll = new Login(selectedRole);
         ll->show();
     }
-    else if (selectedRole == "Admin")
+    else if (selectedRole == "aa")
     {
-        qDebug() << "Admin role selected";
-        return;
+        filename = "C:/Users/HP/Desktop/CS2 Lab Project/Admin.txt";
+
+        saveVariables(filename, name, pass);
+        this->hide();
+        Login *ll = new Login(selectedRole);
+        ll->show();
     }
     }
 

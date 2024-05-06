@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QLabel>
+#include <QFile>
 
 namespace Ui {
 class RequestAppoint;
@@ -17,6 +18,7 @@ class RequestAppoint : public QDialog
 public:
     explicit RequestAppoint(QWidget *parent = nullptr);
     ~RequestAppoint();
+    QFile file;
 
 private slots:
     void handleSlotButtonClicked();
