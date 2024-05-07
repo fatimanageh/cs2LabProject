@@ -24,6 +24,7 @@ private slots:
 
 private:
     Ui::AdminData *ui;
+
 };
 
 #endif // ADMINDATA_H

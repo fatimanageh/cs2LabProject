@@ -19,7 +19,7 @@
      <x>30</x>
      <y>100</y>
      <width>131</width>
-     <height>24</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
@@ -32,7 +32,7 @@
      <x>110</x>
      <y>160</y>
      <width>141</width>
-     <height>24</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
@@ -45,11 +45,24 @@
      <x>220</x>
      <y>100</y>
      <width>131</width>
-     <height>21</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
     <string>View doctor data</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Back">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>260</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Back</string>
    </property>
   </widget>
  </widget>

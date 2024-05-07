@@ -18,6 +18,8 @@ public:
 private slots:
     void on_patientRecord_clicked();
 
+    void on_Back_clicked();
+
 private:
     Ui::Nurse *ui;
 };

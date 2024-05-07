@@ -17,7 +17,7 @@ Login::Login(QString selectedRole, QWidget *parent)
     ui->setupUi(this);
     role = new MainWindow;
     this->selectedRole=selectedRole;
-    QPixmap pix("C:/Users/HP/Downloads/3632097.jpg");
+    QPixmap pix("C:/Users/HP/Downloads/cs2LabProject-main/cs2LabProject-main/3632097.jpg");
     backgroundLabel = new QLabel(this);
     backgroundLabel->setPixmap(pix);
     backgroundLabel->setScaledContents(true);

@@ -55,3 +55,12 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     files.qrc
+
+DISTFILES += \
+    3632097.jpg \
+    abstract-blur-hospital-clinic-interior.jpg \
+    blur-hospital.jpg \
+    clipboard-stethoscope.jpg \
+    composition-medical-objects-with-copyspace.jpg \
+    flat-lay-desk-arrangement-with-copy-space.jpg \
+    vintage-grunge-blue-concrete-texture-studio-wall-background-with-vignette.jpg

@@ -5,28 +5,33 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QLabel>
+#include <QSet>
 #include <QFile>
+#include <QTextStream>
+#include <QMessageBox>
 
+QT_BEGIN_NAMESPACE
 namespace Ui {
 class RequestAppoint;
 }
+QT_END_NAMESPACE
 
 class RequestAppoint : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit RequestAppoint(QWidget *parent = nullptr);
+    RequestAppoint(QWidget *parent = nullptr);
     ~RequestAppoint();
-    QFile file;
 
 private slots:
     void handleSlotButtonClicked();
-    void handleCancelButtonClicked();
 
 private:
     Ui::RequestAppoint *ui;
     QVBoxLayout *layout;
+    QFile file;
+    QSet<QString> alreadyRequested;
 
     void loadDoctorData();
 };

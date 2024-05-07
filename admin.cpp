@@ -1,6 +1,7 @@
 #include "admin.h"
 #include "ui_admin.h"
 #include "admindata.h"
+#include "mainwindow.h"
 #include<QPixmap>
 
 Admin::Admin( QWidget *parent)
@@ -9,7 +10,7 @@ Admin::Admin( QWidget *parent)
 {
     ui->setupUi(this);
 
-    QPixmap pix("C:/Users/HP/Downloads/flat-lay-desk-arrangement-with-copy-space.jpg");
+    QPixmap pix("C:/Users/HP/Downloads/cs2LabProject-main/cs2LabProject-main/flat-lay-desk-arrangement-with-copy-space.jpg");
     backgroundLabel = new QLabel(this);
     backgroundLabel->setPixmap(pix);
     backgroundLabel->setScaledContents(true);
@@ -56,5 +57,13 @@ void Admin::on_system_clicked()
 {
 
 
+}
+
+
+void Admin::on_Back_clicked()
+{
+    MainWindow* mainwindow= new MainWindow;
+    mainwindow->show();
+    this->hide();
 }
 

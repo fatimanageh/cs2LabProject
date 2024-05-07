@@ -2,6 +2,7 @@
 #include "ui_patient.h"
 #include "chat.h"
 #include "requestappoint.h"
+#include "mainwindow.h"
 #include <QFileDialog>
 #include <QMessageBox>
 
@@ -10,7 +11,7 @@ Patient::Patient(QWidget *parent)
     , ui(new Ui::Patient)
 {
     ui->setupUi(this);
-    QPixmap pix("C:/Users/HP/Downloads/abstract-blur-hospital-clinic-interior.jpg");
+    QPixmap pix("C:/Users/HP/Downloads/cs2LabProject-main/cs2LabProject-main/abstract-blur-hospital-clinic-interior.jpg");
     backgroundLabel = new QLabel(this);
     backgroundLabel->setPixmap(pix);
     backgroundLabel->setScaledContents(true);
@@ -30,7 +31,7 @@ void Patient::setUsername(const QString &username)
 }
 void Patient::on_medicalRecord_clicked()
 {
-    QString filePath= "C:/Users/HP/Desktop/Hospital/Medical Record.txt";
+    QString filePath= "C:/Users/HP/Desktop/CS2 Lab Project/Medical Record.txt";
     if (!filePath.isEmpty()) {
         QFile file(filePath);
         if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -71,5 +72,14 @@ void Patient::on_chat_clicked()
 
     Chat* chat=new Chat;
   chat->show();
+}
+
+
+void Patient::on_Back_clicked()
+{
+
+    MainWindow* mainwindow= new MainWindow;
+    mainwindow->show();
+    this->hide();
 }
 

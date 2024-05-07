@@ -10,11 +10,12 @@
 #include <QPixmap>
 Register::Register(QString selectedRole, QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::Register)
+    , ui(new Ui::Register),
+    patientData("C:/Users/HP/Desktop/CS2 Lab Project/Patient.txt")
 {
     ui->setupUi(this);
 
-    QPixmap pix("C:/Users/HP/Downloads/vintage-grunge-blue-concrete-texture-studio-wall-background-with-vignette.jpg");
+    QPixmap pix("C:/Users/HP/Downloads/cs2LabProject-main/cs2LabProject-main/vintage-grunge-blue-concrete-texture-studio-wall-background-with-vignette.jpg");
     backgroundLabel = new QLabel(this);
     backgroundLabel->setPixmap(pix);
     backgroundLabel->setScaledContents(true);
@@ -23,12 +24,14 @@ Register::Register(QString selectedRole, QWidget *parent)
     role = new MainWindow;
 
     this->selectedRole=selectedRole;
-    QFile patientData("C:/Users/HP/Desktop/CS2 Lab Project/Patient.txt");
+
     if (!patientData.open(QIODevice::Append | QIODevice::Text))
     {
-        qDebug() << "Could not open file for writing: PatientData.txt";
+        qDebug() << "Could not open file for writing:";
         return;
     }
+
+
 
     QFile doctorData("C:/Users/HP/Desktop/CS2 Lab Project/Doctor.txt");
     if (!doctorData.open(QIODevice::Append | QIODevice::Text))
@@ -53,19 +56,33 @@ Register::~Register()
 {
     delete ui;
 }
-
 void Register::saveVariables(const QString &filename, const QString &variable1, const QString &variable2)
 {
     QFile file(filename);
-
+    QFile file1("C:/Users/HP/Desktop/CS2 Lab Project/Medical Record.txt");
 
     if (!file.open(QIODevice::Append | QIODevice::Text))
     {
         qDebug() << "Could not open file for writing:" << filename;
         return;
     }
+
     QTextStream out(&file);
-    out << variable1 << " " << variable2 << "\n";
+    out << variable1 << " " << variable2<< "\n";
+
+    if (filename == "C:/Users/HP/Desktop/CS2 Lab Project/Patient.txt")
+    {
+        if (!file1.open(QIODevice::Append | QIODevice::Text))
+        {
+            qDebug() << "Could not open file for writing: Medical Record.txt";
+            return;
+        }
+
+        QTextStream out2(&file1);
+        out2 << variable1 << " " <<"\n";
+
+        file1.close();
+    }
 
     file.close();
 }

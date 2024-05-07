@@ -1,6 +1,7 @@
 #include "admindata.h"
 #include "ui_admindata.h"
 #include "mainwindow.h"
+#include "admin.h"
 #include <QFile>
 
 AdminData::AdminData(QString file, QWidget *parent)
@@ -26,6 +27,7 @@ AdminData::AdminData(QString file, QWidget *parent)
     file1.close();
 
     ui->viewData->setPlainText(fileContent);
+
 }
 
 AdminData::~AdminData()
@@ -42,8 +44,8 @@ void AdminData::on_viewData_cursorPositionChanged(int arg1, int arg2)
 void AdminData::on_back_clicked()
 {
     this->hide();
-    MainWindow* mainwindow= new MainWindow;
-    mainwindow->show();
+    Admin* admin= new Admin;
+    admin->show();
 }
 
 void AdminData::on_save_clicked()

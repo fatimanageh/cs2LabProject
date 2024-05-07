@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QFile>
 #include <QTextStream>
+#include <QMessageBox>
 
 RequestAppoint::RequestAppoint(QWidget *parent)
     : QDialog(parent),
@@ -17,6 +18,7 @@ RequestAppoint::RequestAppoint(QWidget *parent)
     scrollLayout->addWidget(scrollWidget);
     loadDoctorData();
 }
+
 
 RequestAppoint::~RequestAppoint()
 {
@@ -63,6 +65,8 @@ void RequestAppoint::loadDoctorData()
     file.close();
 }
 
+
+
 void RequestAppoint::handleSlotButtonClicked()
 {
     QPushButton *button = qobject_cast<QPushButton *>(sender());
@@ -77,89 +81,40 @@ void RequestAppoint::handleSlotButtonClicked()
     QString labelText = label->text();
     QString doctorName = labelText.left(labelText.indexOf(':')).trimmed();
 
-    // QFile file("C:/Users/HP/Desktop/CS2 Lab Project/Doctor slots.txt");
-    if (!file.open(QIODevice::ReadWrite | QIODevice::Text)) {
-        qDebug() << "Could not open the file in the request appoint to request an appointment";
+    if (alreadyRequested.contains(doctorName)) {
+        QMessageBox::information(this, "Already Requested", "You have already requested an appointment for this doctor.");
         return;
     }
 
-    QTextStream stream(&file);
-    QString line;
+    if (!file.open(QIODevice::ReadWrite | QIODevice::Text)) {
+        qDebug() << "Could not open the file in the request appoint to search and update the line";
+        return;
+    }
+
     QString updatedFileContents;
+    QTextStream stream(&file);
 
     while (!stream.atEnd()) {
-        line = stream.readLine();
-        if (line.startsWith(doctorName)) {
-            QStringList parts = line.split(':');
-            QString availability = parts.value(1).trimmed();
-            if (availability != "Yes") {
-                QHBoxLayout *layout = qobject_cast<QHBoxLayout *>(widget->layout());
-                QPushButton *cancelButton = new QPushButton("Cancel");
-                cancelButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-                cancelButton->setFixedSize(80, 30);
-                layout->replaceWidget(button, cancelButton);
-                layout->addWidget(label);
+        QString line = stream.readLine();
+        QStringList parts = line.split(':');
+        QString currentDoctorName = parts.value(0).trimmed();
+        QString availability = parts.value(1).trimmed();
 
-                connect(cancelButton, &QPushButton::clicked, this, &RequestAppoint::handleCancelButtonClicked);
-
-                parts[1] = "Yes";
-                line = parts.join(':');
-            }
+        if (currentDoctorName == doctorName && availability != "Yes") {
+            line = currentDoctorName + ": Yes";
+            alreadyRequested.insert(doctorName); // Add doctorName to the set of already requested doctors
         }
+
         updatedFileContents += line + "\n";
     }
 
-    file.resize(0);
-    stream << updatedFileContents;
     file.close();
-}
 
-void RequestAppoint::handleCancelButtonClicked()
-{
-    QPushButton *button = qobject_cast<QPushButton *>(sender());
-    if (!button)
-        return;
-
-    QWidget *widget = button->parentWidget();
-    QLabel *label = widget->findChild<QLabel *>();
-    if (!label)
-        return;
-
-    QString labelText = label->text();
-    QString doctorName = labelText.left(labelText.indexOf(':')).trimmed();
-
-    // QFile file("C:/Users/HP/Desktop/CS2 Lab Project/Doctor slots.txt");
-    if (!file.open(QIODevice::ReadWrite | QIODevice::Text)) {
-        qDebug() << "Could not open the file in the request appoint to cancelan appointment";
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qDebug() << "Could not open the file for writing in the request appoint to update the line";
         return;
     }
-
-    QTextStream stream(&file);
-    QString line;
-    QString updatedFileContents;
-
-    while (!stream.atEnd()) {
-        line = stream.readLine();
-        if (line.startsWith(doctorName)) {
-            QStringList parts = line.split(':');
-            QString availability = parts.value(1).trimmed();
-            if (availability == "Yes") {
-                QHBoxLayout *layout = qobject_cast<QHBoxLayout *>(widget->layout());
-                QPushButton *requestButton = new QPushButton("Request");
-                requestButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-                requestButton->setFixedSize(80, 30);
-                layout->replaceWidget(button, requestButton);
-                layout->addWidget(label);
-                connect(requestButton, &QPushButton::clicked, this, &RequestAppoint::handleSlotButtonClicked);
-
-                parts[1] = "No";
-                line = parts.join(':');
-            }
-        }
-        updatedFileContents += line + "\n";
-    }
-
-    file.resize(0);
-    stream << updatedFileContents;
+    QTextStream out(&file);
+    out << updatedFileContents;
     file.close();
 }

@@ -26,6 +26,8 @@ private slots:
 
     void on_system_clicked();
 
+    void on_Back_clicked();
+
 private:
     Ui::Admin *ui;
 };

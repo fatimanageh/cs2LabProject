@@ -24,6 +24,8 @@ private slots:
 
     void on_chat_clicked();
 
+    void on_Back_clicked();
+
 private:
     Ui::Patient *ui;
     QString username1;

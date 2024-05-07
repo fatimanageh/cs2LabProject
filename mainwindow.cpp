@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     selectedRole = "None";
 
-    QPixmap pix("C:/Users/HP/Downloads/blur-hospital.jpg");
+    QPixmap pix("C:/Users/HP/Downloads/cs2LabProject-main/cs2LabProject-main/blur-hospital.jpg");
     backgroundLabel = new QLabel(this);
     backgroundLabel->setPixmap(pix);
     backgroundLabel->setScaledContents(true);

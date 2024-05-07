@@ -5,6 +5,7 @@
 #include <QString>
 #include "mainwindow.h"
 #include <QLabel>
+#include <QFile>
 namespace Ui {
 class Register;
 }
@@ -17,6 +18,7 @@ public:
     explicit Register(  QString selectedRole, QWidget *parent = nullptr);
     ~Register();
     QLabel* backgroundLabel;
+    QFile patientData;
 
 private slots:
     void on_LoginPB_clicked();

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Patient</class>
- <widget class="QDialog" name="Patient">
+ <class>Doctorslots</class>
+ <widget class="QDialog" name="Doctorslots">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,49 +13,46 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="medicalRecord">
+  <widget class="QPushButton" name="Add">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>90</y>
-     <width>141</width>
-     <height>51</height>
+     <x>220</x>
+     <y>240</y>
+     <width>75</width>
+     <height>24</height>
     </rect>
    </property>
    <property name="text">
-    <string>Medical Record</string>
+    <string>Add slot</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="chat">
+  <widget class="QTextEdit" name="textEdit">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>160</y>
-     <width>81</width>
-     <height>51</height>
+     <x>53</x>
+     <y>130</y>
+     <width>201</width>
+     <height>71</height>
     </rect>
-   </property>
-   <property name="text">
-    <string>Chat</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="Appointment">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>90</y>
-     <width>131</width>
+     <x>40</x>
+     <y>65</y>
+     <width>261</width>
      <height>51</height>
     </rect>
    </property>
    <property name="text">
-    <string>Request Appointment</string>
+    <string>Write  your preferred slot:</string>
    </property>
   </widget>
   <widget class="QPushButton" name="Back">
    <property name="geometry">
     <rect>
-     <x>270</x>
+     <x>310</x>
      <y>240</y>
      <width>75</width>
      <height>24</height>
